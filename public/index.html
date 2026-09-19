@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>เวทีถกเถียง — หลาย AI ร่วมหาคำตอบ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="chamber-header">
+    <h1>เวทีถกเถียง</h1>
+    <p class="subtitle">ตั้งคำถามหนึ่งข้อ ให้ AI แต่ละแพลตฟอร์มตอบ วิจารณ์กันเอง แล้วโหวตหาคำตอบที่ดีที่สุด</p>
+    <p class="subtitle api-note">โปรแกรม/AI อื่นเรียกใช้ผ่าน API ได้ที่ <code>POST /api/v1/debate</code> — ดูรายละเอียดที่ <a href="/api/v1/docs">/api/v1/docs</a></p>
+    <div id="provider-status" class="provider-status"></div>
+  </header>
+
+  <main class="chamber-main">
+    <form id="question-form" class="question-bar">
+      <input id="question-input" type="text" placeholder="พิมพ์คำถามที่จะให้เวทีถก..." autocomplete="off" />
+      <label class="rounds-label">
+        รอบ
+        <select id="rounds-select">
+          <option value="1">1</option>
+          <option value="2" selected>2</option>
+          <option value="3">3</option>
+        </select>
+      </label>
+      <button type="submit" id="submit-btn">เริ่มถก</button>
+    </form>
+
+    <div id="status-line" class="status-line" hidden></div>
+
+    <div id="board" class="board"></div>
+
+    <div id="verdict" class="verdict" hidden></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
